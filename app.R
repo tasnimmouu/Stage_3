@@ -1,3 +1,4 @@
+
 library(shiny)
 library(ggplot2)
 library(dplyr)
@@ -130,18 +131,20 @@ server <- function(input, output) {
         arrange(desc(diff), desc(det_in)) %>%
         slice(1) %>%
         pull(gene)
-      
-      expr_umap <- data
+      expr_umap <- merged_data()
       expr_umap[[top_gene]] <- expression_matrix[expr_umap$cell_id, top_gene]
       
-      ggplot(expr_umap,
-             aes(x = UMAP_1,
-                 y = UMAP_2,
-                 color = scale_0_100(.data[[top_gene]]))) +
+      # SCALE EXPRESSION TO 0–100
+      expr_umap[[top_gene]] <- scale_0_100(expr_umap[[top_gene]])
+      
+      ggplot(expr_umap, aes(x = UMAP_1, y = UMAP_2,
+                            color = .data[[top_gene]])) +
         geom_point(size = 2) +
+        scale_color_viridis_c(limits = c(0, 100)) +
         theme_minimal() +
         labs(title = paste("UMAP Colored by Marker:", top_gene),
-             color = top_gene)
+             color = "Scaled Expression (0–100)")
+      
     }
   })
   
