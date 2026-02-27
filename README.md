@@ -1,3 +1,9 @@
+## Live Shiny App
+
+You can access the deployed application here:
+
+https://anika-hackbio3.shinyapps.io/hackbio_final/
+
 # Single-Cell Marker Explorer
 
 ## How to Run the App
@@ -28,4 +34,5 @@ A higher diff indicates stronger specificity.
 1. Compute statistics for all genes.
 2. Rank genes by highest diff.
 3. If there is a tie, choose the gene with higher det_in.
+
 4. The top gene is used to color the UMAP.
