@@ -20,7 +20,7 @@ https://anika-hackbio3.shinyapps.io/hackbio_final/
 4. Click **Run App** or run the following command in the R console:
 
 ```r
-shiny::runApp()
+shiny::runApp("path/to/Stage_3")
 ```
 
 ---
@@ -58,3 +58,4 @@ This ensures reproducibility — the same selected cell type will always return 
 - When **"All"** is selected, the UMAP is colored by cell type.
 - When a specific cell type is selected, the UMAP is colored by the top marker gene expression.
 - Gene expression values are scaled to 0–100 before visualization to ensure consistent and comparable color intensity across genes.
+
