@@ -77,7 +77,7 @@ ui <- fluidPage(
     ),
     
     mainPanel(
-      plotOutput("umapPlot", height = "600px"),
+      plotOutput("umapPlot", height = "300px"),
       br(),
       verbatimTextOutput("markerInfo"),
       br(),
@@ -183,3 +183,4 @@ server <- function(input, output) {
 }
 
 shinyApp(ui = ui, server = server)
+
